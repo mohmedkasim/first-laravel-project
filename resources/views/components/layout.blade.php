@@ -22,7 +22,7 @@
                 <x-nav-link href="/" :active="request()->is('/')">Home</x-nav-link>
                 <x-nav-link href="/about" :active="request()->is('about')">About</x-nav-link>
                 <x-nav-link href="/contact" :active="request()->is('contact')" type="button">Contact</x-nav-link>
-                <x-nav-link href="/meet-team" :active="request()->is('meet-team')">Team</x-nav-link>
+                <x-nav-link href="/meet-team" :active="request()->is('meet-team')" type="button">Team</x-nav-link>
 
               </div>
             </div>
