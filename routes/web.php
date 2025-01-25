@@ -13,8 +13,30 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/contact', function() {
-    return view('contact');
+Route::get('/contact', function () {
+    return view('contact', [
+        'data' => [
+            [
+                'id' => '1',
+                'name' => 'Mohamed',
+                'phone' => '092######',
+                'email' => '@gmail.com',
+            ],
+            [
+                'id' => '2',
+                'name' => 'Ahmed',
+                'phone' => 'here is the phone number',
+                'email' => 'here is the email',
+            ],
+            [
+                'id' => '3',
+                'name' => 'Ali',
+                'phone' => 'here is the phone number',
+                'email' => 'here is the email',
+            ],
+        ],
+    ]);
+});
 });
 
 Route::get('/meet-team', function() {
