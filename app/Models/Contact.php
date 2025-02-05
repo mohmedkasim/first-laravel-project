@@ -33,9 +33,14 @@ class Contact {
      * @param int $id Contact ID
      * @return array|null Contact data or null if not found
      */
-    public static function find(int $id) : array 
+    public static function find(int $id): array 
     {
-        return Arr::first(static::all(), fn($contact) => $contact['id'] == $id);
-    
+        $contact = Arr::first(static::all(), fn($contact) => $contact['id'] == $id);
+
+        if (!$contact){
+            abort(404);
+        }
+        
+        return $contact;
     }
 }
