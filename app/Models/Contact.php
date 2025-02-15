@@ -2,45 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Support\Arr;
-class Contact {
-    public static function all(): array {
-        return  [
-            [
-                'id' => '1',
-                'name' => 'Mohamed',
-                'phone' => '092######',
-                'email' => '@gmail.com',
-            ],
-            [
-                'id' => '2',
-                'name' => 'Ahmed',
-                'phone' => 'here is the phone number',
-                'email' => 'here is the email',
-            ],
-            [
-                'id' => '3',
-                'name' => 'Ali',
-                'phone' => 'here is the phone number',
-                'email' => 'here is the email',
-            ],
-        ];
-    }
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+class Contact extends Model {
+    use HasFactory;
+    
+    protected $table = "contact_listings";
 
-    /**
-     * Get a contact by ID
-     *
-     * @param int $id Contact ID
-     * @return array|null Contact data or null if not found
-     */
-    public static function find(int $id): array 
-    {
-        $contact = Arr::first(static::all(), fn($contact) => $contact['id'] == $id);
-
-        if (!$contact){
-            abort(404);
-        }
-        
-        return $contact;
-    }
+    // for security reason [Mass assigned] to update through website it required for fillable fields to do that like(name, phone, email), else will be blocked
+    protected $fillable = [
+        'name',
+        'phone',
+        'email',
+    ];
 }
