@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('contact_listings', function (Blueprint $table) {
             $table->id();
+            // $table->unsignedbigInteger('employee_id');
+            $table->foreignIdFor(\App\Models\Employer::class);
             $table->string('name');
             $table->string('phone');
             $table->string('email');
